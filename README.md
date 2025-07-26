@@ -1,6 +1,8 @@
 # AI Influencer Project
 
-An automated content generation and LinkedIn posting system that creates tech news summaries and ML engineering tips. The system uses AI agents to generate engaging content, analyze trends, and automate social media posting.
+An automated content generation and LinkedIn posting system that creates tech news summaries and ML engineering tips. 
+
+This is an ongoing project. In the future, the system will be using AI agents to scrape internet for trends and relevant content, enhance content strategy, generate more engaging content, analyze trends, and automate social media posting.
 
 ## Features
 
