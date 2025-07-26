@@ -5,11 +5,10 @@ build/
 dist/
 wheels/
 *.egg-info
-
+data/logs/*
 # Virtual environments
 .venv
 .env
 *.log
 features.txt
-*.csv
 .DS_Store

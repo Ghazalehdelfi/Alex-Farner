@@ -1,6 +1,15 @@
 # AI Influencer Project
 
-This project automates content generation, review, and posting to LinkedIn for an AI influencer. It generates both tech news summaries and ML engineering tips, sends them for review via email, and posts approved content to LinkedIn.
+An automated content generation and LinkedIn posting system that creates tech news summaries and ML engineering tips. The system uses AI agents to generate engaging content, analyze trends, and automate social media posting.
+
+## Features
+
+- **Content Generation**: Automated creation of ML tips and tech news posts
+- **LinkedIn Automation**: Automated posting to LinkedIn using Playwright
+- **AI Agents**: Multiple specialized agents for content creation and analysis
+- **Performance Analytics**: Track and analyze post performance
+- **Trend Analysis**: Monitor industry trends for content optimization
+- **Strategy Optimization**: AI-powered content strategy recommendations
 
 ## Project Structure
 
@@ -8,87 +17,132 @@ This project automates content generation, review, and posting to LinkedIn for a
 .
 ├── src/
 │   ├── content_generators/    # Content generation modules
-│   │   ├── ml_tips.py        # ML tips generator
-│   │   └── tech_news.py      # Tech news generator
-│   ├── automation/           # Automation modules
-│   │   ├── linkedin_poster.py # LinkedIn posting automation
-│   │   ├── email_listener.py  # Email monitoring
-│   │   └── email_options.py   # Email content handling
-│   ├── utils/               # Utility functions
-│   │   ├── utils.py         # Common utilities
-│   │   └── scheduler.py     # Content scheduling
+│   │   ├── ml_tips.py        # ML engineering tips generator
+│   │   └── tech_news.py      # Tech news content generator
+│   ├── automation/           # LinkedIn automation
+│   │   ├── linkedin_agents.py # LinkedIn agent classes
+│   │   └── linkedin_poster.py # LinkedIn posting automation
+│   ├── web/                 # Web interface
+│   │   ├── app.py           # Flask web application
+│   │   └── templates/       # HTML templates
 │   └── config/              # Configuration files
+│       └── content_strategies.yaml # Content generation strategies
 ├── data/
-│   ├── news_posts/         # Generated news posts
-│   ├── tips_posts/         # Generated ML tips
-│   └── logs/              # Log files
-├── scripts/               # Utility scripts
-│   ├── run_ml_tips.py    # ML tips generator script
-│   ├── run_tech_news.py  # Tech news generator script
-│   └── setup_launchd.sh  # Launchd setup script
-├── config/               # Configuration files
-│   ├── credentials.json  # Google OAuth credentials
-│   └── token.json       # OAuth token
+│   ├── news_posts/         # Generated tech news posts
+│   ├── tips_posts/         # Generated ML tips posts
+│   ├── logs/              # Application logs
+│   ├── articles.csv       # Article metadata
+│   ├── posts.csv          # Post metadata
+│   ├── ml_engineering_tips.csv # ML tips data
+│   └── top_performing_posts.csv # Performance analytics
+├── tests/                 # Test files
+├── config/               # Additional configuration
 └── requirements.txt      # Python dependencies
 ```
 
 ## Setup
 
-1. Install dependencies:
+1. Clone the repository and navigate to the project directory
+
+2. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
-
-2. Set up environment variables in `.env`:
-   ```
-   OPENAI_API_KEY=your_openai_key
-   LINKEDIN_EMAIL=your_linkedin_email
-   LINKEDIN_PASSWORD=your_linkedin_password
-   EMAIL_TO=reviewer_email
-   EMAIL_FROM=your_email
+   
+   Or install in development mode:
+   ```bash
+   pip install -e .
    ```
 
-3. Set up Google OAuth credentials:
-   - Download credentials from Google Cloud Console
-   - Save as `config/credentials.json`
+3. Set up environment variables in `.env`:
+   ```
+   OPENAI_API_KEY=your_openai_api_key_here
+   LINKEDIN_EMAIL=your_linkedin_email_here
+   LINKEDIN_PASSWORD=your_linkedin_password_here
+   ```
+
+4. Install Playwright browsers (required for LinkedIn automation):
+   ```bash
+   playwright install
+   ```
 
 ## Usage
 
-1. Generate content:
+### Content Generation
+
+1. **Generate ML Tips**:
    ```bash
-   python scripts/run_ml_tips.py  # Generate ML tips
-   python scripts/run_tech_news.py  # Generate tech news
+   python -m src.content_generators.ml_tips
    ```
 
-2. The system will:
-   - Generate new content
-   - Send it for review via email
-   - Monitor for approval
-   - Post approved content to LinkedIn
+2. **Generate Tech News**:
+   ```bash
+   python -m src.content_generators.tech_news
+   ```
 
-## Automation
+### Web Interface
 
-The project includes Launchd configuration files for automated scheduling:
-- `config/com.alexfarner.mltips.plist`: ML tips generation
-- `config/com.alexfarner.technews.plist`: Tech news generation
+Launch the Flask web application for a user-friendly interface:
 
-To set up automation:
 ```bash
-./scripts/setup_launchd.sh
+python -m src.web.app
 ```
 
-## Directory Structure
+The web interface provides:
+- **Strategy Management**: Create and edit content generation strategies
+- **Content Overview**: View generated content and performance metrics
+- **Real-time Generation**: Trigger content generation with progress tracking
+- **Content Scheduling**: Manage posting schedules for different content types
 
-- `data/news_posts/`: Generated tech news posts
-- `data/tips_posts/`: Generated ML tips
-- `posts.csv`: Metadata for tech news posts
-- `ml_engineering_tips.csv`: Metadata for ML tips
+Access the interface at `http://localhost:5000` after starting the server.
 
-## Files
+### LinkedIn Automation
 
-- `scheduler.py`: Main scheduler for content generation
-- `email_listener.py`: Monitors email for approvals
-- `linkedin_poster.py`: Handles LinkedIn automation
-- `tech_news.py`: Generates tech news content
-- `ml_tips.py`: Generates ML tips content
-- `email_options.py`: Handles email functionality
+1. **Post content to LinkedIn**:
+   ```bash
+   python -m src.automation.linkedin_poster
+   ```
+
+2. **Use LinkedIn agents for advanced automation**:
+   ```bash
+   python -m src.automation.linkedin_agents
+   ```
+
+### Running Tests
+
+```bash
+pytest tests/
+```
+
+## Key Components
+
+### Content Generators
+- **`src/content_generators/ml_tips.py`**: Generates ML engineering tips using OpenAI GPT models
+- **`src/content_generators/tech_news.py`**: Scrapes and summarizes tech news from various sources
+
+### Automation
+- **`src/automation/linkedin_agents.py`**: LinkedIn agent classes for automated interactions
+- **`src/automation/linkedin_poster.py`**: Automated LinkedIn posting using Playwright
+
+### Web Interface
+- **`src/web/app.py`**: Flask web application for content management
+- **`src/web/templates/`**: HTML templates for the web interface
+
+### Configuration
+- **`src/config/content_strategies.yaml`**: Content generation strategies and templates
+- **`.env`**: Environment variables and API keys
+
+### Data Management
+- **`data/logs/`**: Application logs for debugging and monitoring
+- **`data/news_posts/`**: Generated tech news content
+- **`data/tips_posts/`**: Generated ML tips content
+- **CSV files**: Metadata and performance tracking
+
+## Development
+
+The project uses:
+- **OpenAI GPT models** for content generation
+- **Playwright** for web automation
+- **FastAPI** for potential web interface
+- **Pandas** for data management
+

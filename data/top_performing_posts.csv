@@ -1,0 +1,171 @@
+content,likes,comments,total_engagement
+"A solar or grid-charged heavy-duty machine starting at $16,800. Performs a wide variety of land care tasks (mowing, hauling, grading) in manual or autonomous mode, day or night. Operates in challenging terrains with zero-turn capability. Already productive in multiple orchards, solar farms.
+All-electric drive, 60 HP (45 KW) peak / 1,400 ft lb torque.
+Compact (50"" x 80"") with dual 2"" hitch receivers and optional Category 1 3PT hitch. Electric PTO and electric mowing deck available.
+10kWh storage offers hours of work, day or night. Optional 3KW inverter supplies backup power for home / tools.","18,552",0,18552
+"I’m delighted to announce that AI Fund has closed $190M for our new fund, in an oversubscribed round. I look forward to working with many more builders to create new companies that serve humanity.
+
+AI Fund isn’t a traditional venture capital firm that invests in existing businesses. Instead, we are a venture builder (also called a venture studio): We co-found AI companies, so our team is directly involved in writing code, talking to customers to get feedback, iterating on product designs, preparing market analyses, and so on. We have a lot of fun building multiple AI products at a time, and thus live daily the emerging AI startup best practices.
+
+Many factors go into the success of a startup. But if I had to pick just one, it would be speed. Startups live or die based on their ability to make good decisions and execute fast, which has been a recurring theme of my posts here as well.
+
+If you are building an AI startup, here are some ideas to consider:
+- A startup with a small team that pursues one focused, concrete idea can move really fast. Rather than hedging, it is often better to pursue one hypothesis (for example, build one concrete product) but also be willing to switch quickly to a different hypothesis (say, change what features you decide to build) if the data that comes back indicates the original hypothesis is flawed. Concreteness gets you speed!
+- A subject matter expert’s gut is remarkably good at making quick decisions. Obviously, there’s a role for data and user studies as well. But if you’re deciding whether to build feature A or B, or to sell first to user persona X or Y, sometimes a domain expert’s gut will point to a quick decision that you can execute and validate or falsify. Trusting a domain expert’s gut gets you speed!
+- AI-assisted coding is making prototyping faster than ever before. Yes, AI assistance is speeding up building reliable, enterprise-grade applications and maintaining legacy codebases. But the acceleration it brings to building stand-alone prototypes is far greater. This is because stand-alone prototypes have low requirements for reliability, integration, or even security (if, say, you run them in a sandbox environment). This lets us prototype and test at a ferocious velocity. AI-assisted coding (including vibe coding, where you might barely look at the code) gets you speed!
+- Finally, with faster prototyping, the bottleneck shifts to getting feedback from users. A single learning cycle might consist of (i) building a prototype and (ii) getting user feedback to inform the next iteration. Since (i) is now much faster, accelerating (ii) is growing in importance. This means teams that are skilled at finding prospective customers and getting their feedback in hours/days rather than weeks can go faster. 
+
+I’m grateful to AI Fund’s investors, team, and entrepreneur partners for working with us. There is much ahead to build!
+
+[Shortened due to length limit. Full text: https://lnkd.in/gBaqAAcF ]","5,848",288 comments,6136
+"Mastering async in JavaScript isn’t optional anymore — it’s essential.
+
+At some point, every frontend dev hits this wall:
+You’re fetching data…
+Things seem fine…
+Then: “Why is this value undefined?”
+Or worse — “UnhandledPromiseRejectionWarning”
+
+Welcome to the world of Promises, async/await, and the event loop.
+
+Here’s what helped me make sense of it:
+ • async/await makes code look synchronous — but it’s still async under the hood.
+ • Not handling errors with try/catch? That’s a bug waiting to happen.
+ • Forgetting await even once can break your logic in weird ways.
+ • And yes — Promise.all and Promise.race are power tools when used right.
+
+The more you understand how JavaScript handles async behind the scenes, the easier it becomes to write code that just works — especially when building UIs that depend on external data.
+
+🧠 If you can reason through an async bug in an interview, that’s a strong signal.
+
+
+hashtag
+#JavaScript 
+hashtag
+#AsyncAwait 
+hashtag
+#FrontendInterview 
+hashtag
+#WebDevelopment 
+hashtag
+#Promises 
+hashtag
+#CodingTips 
+hashtag
+#EventLoop 
+hashtag
+#FrontendEngineer 
+hashtag
+#ReactJS 
+hashtag
+#VueJS","5,396",213 comments,5609
+"Taking multi-object tracking to the next level with SAM2 🏀🏀🏀
+
+Last year, I spent all of May building Football AI—this time, I’m working on something cool with basketball.
+
+One of the toughest challenges I’m facing while building Basketball AI is occlusions. Players frequently fight for position, blocking each other from view, which makes multi-object tracking (MOT) extremely difficult. 
+
+Over the past few days, I’ve been experimenting with using Segment Anything Model 2 (SAM2) for tracking—and the results blew my mind.
+
+We're planning to add a SAM2-based tracker to the trackers library, and also enable automatic annotation of MOT datasets using SAM2.
+
+⮑ 🔗 https://lnkd.in/dy6tSiS8
+
+You’ll find links to my SAM2 tutorials and notebooks, as well as the Football AI project, in the comments below 👇🏻 Basketball AI code and tutorial coming soon!
+
+
+hashtag
+#computervision 
+hashtag
+#opensource 
+hashtag
+#multimodal 
+hashtag
+#sportsanalytics","3,894",178 comments,4072
+"Our West Coast Sales Director, Krunal Patel, is thrilled to introduce Novogene's latest game-changer: FREE daily sample pickup service spanning the entire Bay Area to Sacramento region!
+
+From the South Bay to Sacramento (and everything in between), Novogene is prioritizing convenience for our esteemed clients, ensuring your samples arrive safely to our lab. Stanford University, University of California, San Francisco, University of California, Berkeley, University of California, Davis, and beyond, get ready for the best, fastest, and most efficient service yet. Let's elevate your research journey together!","3,806",23 comments,3829
+"I spoke with Keir Starmer earlier today. Together, we’re going to make the Canada-U.K. relationship even stronger: expanding our nations’ economic partnership and deepening our defence and security alliance. Thanks for the call, Prime Minister.","3,254",173 comments,3427
+"AI’s ability to make tasks not just cheaper, but also faster, is underrated in its importance in creating business value.
+
+For the task of writing code, AI is a game-changer. It takes so much less effort — and is so much cheaper — to write software with AI assistance than without. But beyond reducing the cost of writing software, AI is shortening the time from idea to working prototype, and the ability to test ideas faster is changing how teams explore and invent. When you can test 20 ideas per month, it dramatically changes what you can do compared to testing 1 idea per month. This is a benefit that comes from AI-enabled speed rather than AI-enabled cost reduction.
+
+That AI-enabled automation can reduce costs is well understood. For example, providing automated customer service is cheaper than operating human-staffed call centers. Many businesses are more willing to invest in growth than just in cost savings; and, when a task becomes cheaper, some businesses will do a lot more of it, thus creating growth. But another recipe for growth is underrated: Making certain tasks much faster (whether or not they also become cheaper) can create significant new value.
+
+I see this pattern across more and more businesses. Consider the following scenarios:
+- If a lender can approve loans in minutes using AI, rather than days waiting for a human to review them, this creates more borrowing opportunities (and also lets the lender deploy its capital faster). Even if human-in-the-loop review is needed, using AI to get the most important information to the reviewer might speed things up. 
+- If an academic institution gives homework feedback to students in minutes (via autograding) rather than days (via human grading), the rapid feedback facilitates better learning.
+- If an online seller can approve purchases faster, this can lead to more sales. For example, many platforms that accept online ad purchases have an approval process that can take hours or days; if approvals can be done faster, they can earn revenue faster. This also enables customers to test ideas faster.
+- If a company’s sales department can prioritize leads and respond to prospective customers in minutes or hours rather than days — closer to when the customers’ buying intent first led them to contact the company — sales representatives might close more deals. Likewise, a business that can respond more quickly to requests for proposals may win more deals.
+
+I’ve written previously about looking at the tasks a company does to explore where AI can help. Many teams already do this with an eye toward making tasks cheaper, either to save costs or to do those tasks many more times. If you’re doing this exercise, consider also whether AI can significantly speed up certain tasks. One place to examine is the sequence of tasks on the path to earning revenue. If some of the steps can be sped up, perhaps this can help revenue growth.
+
+[Edited for length; full text: https://lnkd.in/gBCc2FTn ]","2,921",256 comments,3177
+"I’m an AI/ML Engineering Manager with more than 9+ years of experience.
+Here are 6 pieces of advice I would give to people in their 20s, who want to make a career in ML/AI in 2025:
+
+▶️ 𝗠𝗮𝘀𝘁𝗲𝗿 𝘁𝗵𝗲 𝗯𝗼𝗿𝗶𝗻𝗴 𝗳𝘂𝗻𝗱𝗮𝗺𝗲𝗻𝘁𝗮𝗹𝘀 𝗯𝗲𝗳𝗼𝗿𝗲 𝘁𝗵𝗲 𝘀𝗵𝗶𝗻𝘆 𝗟𝗟𝗠 𝘁𝗿𝗶𝗰𝗸𝘀
+→ Nail linear regression, regularisation, loss functions, TF-IDF & BM25.
+→ Explain tokenisation and embeddings from scratch - don’t just import Hugging Face.
+→ Build a non-linear model on a toy dataset you created yourself; understand why it works.
+
+▶️ 𝗧𝗵𝗶𝗻𝗸 “𝘀𝘆𝘀𝘁𝗲𝗺 𝗳𝗶𝗿𝘀𝘁, 𝗺𝗼𝗱𝗲𝗹 𝘀𝗲𝗰𝗼𝗻𝗱”
+→ Sketch an end-to-end pipeline: ingestion → features → model → serving → monitoring.
+→ Optimise latency & cost before you celebrate your Accuracy scores.
+→ Practise trade-offs: When is a managed LLM API fine? When do you self-host a smaller model?
+
+▶️ 𝗚𝗲𝘁 𝗵𝗮𝗻𝗱𝘀-𝗼𝗻 𝘄𝗶𝘁𝗵 𝗠𝗟𝗢𝗽𝘀, 𝗻𝗼𝘁 𝗷𝘂𝘀𝘁 𝗻𝗼𝘁𝗲𝗯𝗼𝗼𝗸𝘀
+→ Spin up SageMaker or Vertex AI, register a model, deploy an endpoint, add CI/CD in GitHub Actions.
+→ Containerise a tiny FastAPI service that serves your model; push it to AWS ECR.
+→ Instrument basic monitoring (Grafana/W&B/Kibana) and alert on drift or spikes.
+
+▶️ 𝗕𝘂𝗶𝗹𝗱 𝗰𝗼𝗺𝗺𝘂𝗻𝗶𝗰𝗮𝘁𝗶𝗼𝗻 & 𝗽𝗿𝗼𝗱𝘂𝗰𝘁 𝗶𝗻𝘁𝘂𝗶𝘁𝗶𝗼𝗻
+→ Translate “↓ latency by 200 ms” into “checkout conversion ↑ 3 %”.
+→ Ask “Why are we solving this?” before “Which model should we try?”.
+→ Learn to defend architecture choices to product & infra teams in plain English.
+
+▶️ 𝗖𝘂𝗿𝗮𝘁𝗲 𝘆𝗼𝘂𝗿 𝗹𝗲𝗮𝗿𝗻𝗶𝗻𝗴 𝗽𝗮𝘁𝗵 - 𝗱𝗲𝗽𝘁𝗵 𝗯𝗲𝗮𝘁𝘀 𝗙𝗢𝗠𝗢
+→ Pick one domain (e.g. NLP or CV) and go deep: courses → books → papers → small projects → production clone.
+→ Certifications (AWS ML Specialty, etc.) are great frameworks - use them, then go beyond docs and experiment/hands-on.
+→ Ignore the noise of “10 agent patterns in a weekend.” Reliable systems are not built overnight and no one knows everything.
+
+▶️ 𝗜𝗺𝗽𝗼𝗿𝘁𝗮𝗻𝘁 𝗼𝗻𝗲 - 𝗣𝗿𝗼𝘁𝗲𝗰𝘁 𝘆𝗼𝘂𝗿 𝗲𝗻𝗲𝗿𝗴𝘆 - 𝗵𝘆𝗽𝗲 𝗳𝗮𝘁𝗶𝗴𝘂𝗲 𝗶𝘀 𝗿𝗲𝗮𝗹
+→ LinkedIn will flaunt “weekend RAGs” and “one-click agents.” Production reality is slower, messier, and far more grounded.
+→ Schedule focused blocks, log off social feeds, and take breaks. A rested engineer ships more resilient systems.
+
+--
+♻️ Repost if you found it helpful 🤗 
+➕ Follow me - Shantanu for Production AI - ML - MLOps content and Career tips!
+
+Shirin 𝘢𝘯𝘥 𝘐 𝘢𝘳𝘦 𝘣𝘶𝘪𝘭𝘥𝘪𝘯𝘨 𝘑𝘢𝘮𝘞𝘪𝘵𝘩𝘈𝘐 - 𝘤𝘰𝘮𝘮𝘶𝘯𝘪𝘵𝘺 𝘰𝘧 𝘋𝘚/𝘔𝘓/𝘈𝘐 𝘱𝘳𝘢𝘤𝘵𝘪𝘵𝘪𝘰𝘯𝘦𝘳𝘴 - 𝘤𝘰𝘯𝘵𝘳𝘪𝘣𝘶𝘵𝘪𝘯𝘨 𝘰𝘶𝘳 15+ 𝘺𝘦𝘢𝘳𝘴 𝘰𝘧 𝘳𝘦𝘢𝘭 𝘸𝘰𝘳𝘭𝘥 𝘦𝘹𝘱𝘦𝘳𝘪𝘦𝘯𝘤𝘦. 
+𝘑𝘰𝘪𝘯 3000+ 𝘳𝘦𝘢𝘭-𝘸𝘰𝘳𝘭𝘥 𝘋𝘚/𝘔𝘓/𝘈𝘐 𝘣𝘶𝘪𝘭𝘥𝘦𝘳𝘴 𝘩𝘦𝘳𝘦: https://lnkd.in/ds_SzEUH","2,371",160 comments,2531
+I spoke with Prime Minister Schoof this morning. I look forward to working with him to strengthen our economic ties and build on the strong and historic friendship that Canada and the Netherlands share.,"1,767",102 comments,1869
+"From Data Scientist to AI Agents - the roadmap 😃
+Many Data Scientists are yet reaching out for the same!
+(After working on production-level AI Agents)
+
+Investing in these areas will help you in the long run. If I have missed something please add in the comments so its helpful for other people 🙂
+
+Investing in the below areas will help you in the long run:
+
+↳ Extend your 𝗣𝘆𝘁𝗵𝗼𝗻 𝗰𝗮𝗽𝗮𝗯𝗶𝗹𝗶𝘁𝗶𝗲𝘀 - go beyond traditional scripting.
+
+↳ Understand 𝗥𝗔𝗚 (𝗥𝗲𝘁𝗿𝗶𝗲𝘃𝗮𝗹-𝗔𝘂𝗴𝗺𝗲𝗻𝘁𝗲𝗱 𝗚𝗲𝗻𝗲𝗿𝗮𝘁𝗶𝗼𝗻) and its key components.
+
+↳ Work hands-on with 𝗔𝗜 𝗔𝗴𝗲𝗻𝘁 𝗳𝗿𝗮𝗺𝗲𝘄𝗼𝗿𝗸𝘀 and tools to get practical experience. (LangGraph is preferred - my opinion)
+
+↳ Learn how 𝗺𝗼𝗻𝗶𝘁𝗼𝗿𝗶𝗻𝗴 works to ensure reliable performance.
+
+↳ Don’t miss out on 𝗣𝗿𝗼𝗺𝗽𝘁 𝗘𝗻𝗴𝗶𝗻𝗲𝗲𝗿𝗶𝗻𝗴 – it’s extremely important right now.
+
+↳ Know how to 𝗮𝗿𝗰𝗵𝗶𝘁𝗲𝗰𝘁 𝘁𝗵𝗲 𝘀𝘆𝘀𝘁𝗲𝗺𝘀 and 𝗱𝗲𝗽𝗹𝗼𝘆 the entire workflow on the Cloud, ensuring scalability and reliability.
+
+↳ Also understand which LLM to choose - cost vs performance is an important factor.
+
+If you’re serious about getting into AI Agents, this roadmap will help you focus on what truly matters.
+
+What do you think? Can you relate to this?
+
+--
+♻️ Repost if you found it helpful 🤗 
+➕ Follow me - Shantanu for Production AI - ML - MLOps content and Career tips!","1,572",53 comments,1625
