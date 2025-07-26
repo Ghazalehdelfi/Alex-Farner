@@ -1,0 +1,5 @@
+When designing scalable ML architectures, keep this in mind: Distribute computation, not data. The traditional wisdom in Big Data says to move computation to the data. However, in the ML world, this can often lead to distributed-data nightmares like data skew, network bottlenecks, and complex, error-prone synchronization logic.
+
+Instead, prefer architectures that allow you to distribute computations while keeping the data centralized, like parameter-server architectures or distributed TensorFlow. They centralize the ML model, but distribute the compute-heavy forward and backward pass of model training. This avoids the need to repeatedly shuffle large datasets across the network and allows for faster, more efficient scaling.
+
+That said, do not neglect the necessary trade-offs. Centralizing data necessitates a robust, high-bandwidth network infrastructure to handle concurrent read and write requests from numerous nodes. A well-implemented data caching strategy is also key to prevent overloading your central storage and to ensure low latency. Your mileage may vary based on the specific use-case.

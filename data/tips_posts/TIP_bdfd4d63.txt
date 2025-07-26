@@ -1,0 +1,9 @@
+💡Tip: Don't underestimate the value of tracking compound performance metrics. While it's tempting to rely on simple, standalone metrics, they often don't paint the full picture. 🎨 
+
+In production, we found that tracking compound metrics such as precision@k or AUC provided a much more realistic view of our models' performance. 🎯 It’s not just about a single, static accuracy figure, but the entire distribution of predictions. 📊 
+
+However, beware ⚠️: compound metrics can mask issues if not used wisely. For instance, a high AUC might hide the fact that the top predictions (which might be the most used in your application) are totally wrong.
+
+Always pair compound metrics with relevant standalone ones. It's an art to balance these to get a true compass of your model's performance. 🧭
+
+#MachineLearning #MLOps #PerformanceMetrics #CompoundMetrics #MonitoringAndObservability

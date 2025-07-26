@@ -1,0 +1,7 @@
+test Here's a hard-learned tip: Don't shortchange security monitoring in your ML systems. It's easy to focus on model performance and overlook this, but security risks can drastically undermine your system’s utility and open up liability nightmares.
+
+The subtle complexity here lies in tracking unusual patterns in your system’s usage which may indicate adversarial attacks, data poisoning or model stealing. These threats pose considerable risks, but are often overlooked due to the hidden nature of such attacks.
+
+You'll need to trade-off between robust security measures and system performance. However, consider this: a slightly slower, secure system is infinitely better than a faster, compromised one. 
+
+Invest in robust logging, anomaly detection, and real-time alerting. They're not fancy, but they'll save your bacon when you least expect it. Doing this well requires a keen understanding of your system’s behaviour under normal conditions, and a careful balance of false-positive rates. It's hard, it's thankless, but it's crucial. Don’t learn this the hard way.

@@ -1,0 +1,282 @@
+{% extends "base.html" %}
+
+{% block title %}Edit {{ strategy_name|title }}{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ url_for('view_strategy', strategy_name=strategy_name) }}">{{ strategy_name|title }}</a></li>
+                <li class="breadcrumb-item active">Edit</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Edit Strategy</h5>
+            </div>
+            <div class="card-body">
+                <form id="editStrategyForm" method="POST" action="{{ url_for('edit_strategy', strategy_name=strategy_name) }}">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="frequency" class="form-label">Frequency</label>
+                            <select class="form-select" id="frequency" name="frequency" required>
+                                <option value="daily" {% if strategy.get('frequency') == 'daily' %}selected{% endif %}>Daily</option>
+                                <option value="weekly" {% if strategy.get('frequency') == 'weekly' %}selected{% endif %}>Weekly</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="format" class="form-label">Format</label>
+                            <select class="form-select" id="format" name="format" required>
+                                <option value="article" {% if strategy.get('format') == 'article' %}selected{% endif %}>Article</option>
+                                <option value="tips" {% if strategy.get('format') == 'tips' %}selected{% endif %}>Tips</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="topics" class="form-label">Topics</label>
+                        <textarea class="form-control" id="topics" name="topics" rows="3" 
+                                  placeholder="Enter topics, one per line">{{ strategy.get('topics', []) | join('\n') }}</textarea>
+                        <div class="form-text">Enter each topic on a new line</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="tone" class="form-label">Tone</label>
+                        <select class="form-select" id="tone" name="tone" required>
+                            <option value="professional" {% if strategy.get('tone') == 'professional' %}selected{% endif %}>Professional</option>
+                            <option value="educational" {% if strategy.get('tone') == 'educational' %}selected{% endif %}>Educational</option>
+                            <option value="conversational" {% if strategy.get('tone') == 'conversational' %}selected{% endif %}>Conversational</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="target_audience" class="form-label">Target Audience</label>
+                        <input type="text" class="form-control" id="target_audience" name="target_audience" 
+                               value="{{ strategy.get('target_audience', '') }}" required>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="min_likes" class="form-label">Minimum Likes</label>
+                            <input type="number" class="form-control" id="min_likes" name="engagement_metrics.min_likes" 
+                                   value="{{ strategy.get('engagement_metrics', {}).get('min_likes', 0) }}" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="min_comments" class="form-label">Minimum Comments</label>
+                            <input type="number" class="form-control" id="min_comments" name="engagement_metrics.min_comments" 
+                                   value="{{ strategy.get('engagement_metrics', {}).get('min_comments', 0) }}" required>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="hashtags" class="form-label">Hashtags</label>
+                        <textarea class="form-control" id="hashtags" name="hashtags" rows="3" 
+                                  placeholder="Enter hashtags, one per line">{{ strategy.get('hashtags', []) | join('\n') }}</textarea>
+                        <div class="form-text">Enter each hashtag on a new line (include the # symbol)</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="system_prompt" class="form-label">System Prompt</label>
+                        <textarea class="form-control" id="system_prompt" name="prompts.system" rows="4" 
+                                  required>{{ strategy.get('prompts', {}).get('system', '') }}</textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="user_prompt" class="form-label">User Prompt Template</label>
+                        <textarea class="form-control" id="user_prompt" name="prompts.user" rows="8" 
+                                  required>{{ strategy.get('prompts', {}).get('user', '') }}</textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Schedule</label>
+                        <div class="row">
+                            {% for day in ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'] %}
+                            <div class="col-md-6 mb-2">
+                                <div class="input-group">
+                                    <span class="input-group-text">{{ day|title }}</span>
+                                    <input type="time" class="form-control" 
+                                           name="schedule_{{ day }}" 
+                                           value="{{ posting_schedule[strategy_name] | selectattr('day', 'equalto', day) | map(attribute='time') | first }}">
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <a href="{{ url_for('view_strategy', strategy_name=strategy_name) }}" 
+                           class="btn btn-secondary">Cancel</a>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">Tips</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <i class="fas fa-info-circle text-info"></i>
+                        Adjust your strategy based on content performance
+                    </li>
+                    <li class="list-group-item">
+                        <i class="fas fa-info-circle text-info"></i>
+                        Keep engagement targets realistic for your audience size
+                    </li>
+                    <li class="list-group-item">
+                        <i class="fas fa-info-circle text-info"></i>
+                        Update topics based on audience interests and trends
+                    </li>
+                    <li class="list-group-item">
+                        <i class="fas fa-info-circle text-info"></i>
+                        Review and adjust posting schedule for optimal engagement
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Strategy Assistant</h5>
+                <button class="btn btn-sm btn-outline-primary" onclick="clearChat()">
+                    <i class="fas fa-trash"></i> Clear
+                </button>
+            </div>
+            <div class="card-body">
+                <div id="chatMessages" class="chat-messages mb-3" style="height: 300px; overflow-y: auto;">
+                    <div class="message system">
+                        <div class="message-content">
+                            <i class="fas fa-robot"></i> Hello! I'm your strategy assistant. I can help you improve your content strategy. Ask me anything about optimizing your content format, posting schedule, target audience, or engagement metrics.
+                        </div>
+                    </div>
+                </div>
+                <form id="chatForm" class="chat-form">
+                    <div class="input-group">
+                        <input type="text" id="chatInput" class="form-control" placeholder="Ask about your strategy...">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block styles %}
+<style>
+.chat-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.message {
+    display: flex;
+    margin-bottom: 0.5rem;
+}
+
+.message.user {
+    justify-content: flex-end;
+}
+
+.message-content {
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    max-width: 80%;
+}
+
+.message.system .message-content {
+    background-color: #f0f2f5;
+}
+
+.message.user .message-content {
+    background-color: #007bff;
+    color: white;
+}
+
+.chat-form {
+    margin-top: 1rem;
+}
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// ... existing form submission code ...
+
+// Chat functionality
+const chatMessages = document.getElementById('chatMessages');
+const chatForm = document.getElementById('chatForm');
+const chatInput = document.getElementById('chatInput');
+
+function addMessage(content, isUser = false) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${isUser ? 'user' : 'system'}`;
+    messageDiv.innerHTML = `
+        <div class="message-content">
+            ${isUser ? '' : '<i class="fas fa-robot"></i> '}${content}
+        </div>
+    `;
+    chatMessages.appendChild(messageDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function clearChat() {
+    chatMessages.innerHTML = `
+        <div class="message system">
+            <div class="message-content">
+                <i class="fas fa-robot"></i> Hello! I'm your strategy assistant. I can help you improve your content strategy. Ask me anything about optimizing your content format, posting schedule, target audience, or engagement metrics.
+            </div>
+        </div>
+    `;
+}
+
+chatForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const message = chatInput.value.trim();
+    if (!message) return;
+
+    // Add user message
+    addMessage(message, true);
+    chatInput.value = '';
+
+    try {
+        const response = await fetch('/strategy/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                message: message,
+                strategy_name: '{{ strategy_name }}',
+                current_form_data: Object.fromEntries(new FormData(document.getElementById('editStrategyForm')))
+            })
+        });
+
+        const data = await response.json();
+        if (data.status === 'success') {
+            addMessage(data.message);
+        } else {
+            addMessage('Sorry, I encountered an error. Please try again.');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        addMessage('Sorry, I encountered an error. Please try again.');
+    }
+});
+</script>
+{% endblock %} 

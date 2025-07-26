@@ -1,0 +1,15 @@
+Hello fellow tech enthusiasts 🖐️, 
+
+Just stumbled upon Potpie, an open-source platform that creates AI agents specialized in your codebase 🤖. It's got me excited, and here's why:
+
+Potpie's agents enable automated code analysis, testing, and development tasks. They build a comprehensive knowledge graph of your code, understand complex relationships, and assist with everything from debugging to feature development - sounds like a developer's dream, right? 😅
+
+Plus, the platform is flexible enough to handle codebases of any size or language. It even has a VSCode extension for seamless integration with your existing workflow. 
+
+What I find especially neat is the various prebuilt agents available. They can do everything from analyzing code changes and identifying affected APIs to generating code for new features and suggesting optimizations. 
+
+For anyone intrigued, check it out here 👉 https://github.com/potpie-ai/potpie
+
+Happy coding, everyone! 🚀
+
+#AI #MachineLearning #Coding #OpenSource #SoftwareDevelopment

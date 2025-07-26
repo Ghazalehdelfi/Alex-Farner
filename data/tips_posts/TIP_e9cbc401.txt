@@ -1,0 +1,7 @@
+When dealing with Compliance Monitoring in ML systems, the often overlooked aspect is "model drift." It's crucial to understand that compliance isn't a one-time checkbox. It's not enough to ensure your model is compliant at the time of deployment. 
+
+Compliance needs to be treated as a moving target with continuous monitoring, because model predictions may drift over time as the data distribution changes. This non-obvious drift can quietly introduce non-compliant biases or breaches. 
+
+The tradeoff here is between robustness and performance. You may need to sacrifice a bit of model performance to ensure ongoing compliance, often through implementating simpler yet more interpretable models. This complexity is typically hidden beneath the surface, and many teams learn the hard way when they discover too late that their model is no longer compliant.
+
+In production, it's a continuous balance. Keep compliance at the forefront, monitoring model drift and ensuring that performance gains don't compromise your compliance obligations.

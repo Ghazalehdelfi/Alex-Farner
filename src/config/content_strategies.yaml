@@ -1,0 +1,138 @@
+content_guidelines:
+  call_to_action: true
+  include_media: true
+  max_length: 1000
+  media_types:
+  - images
+  - code_snippets
+  min_length: 200
+  personal_touch: true
+content_types:
+  ml_tips:
+    engagement_metrics:
+      min_comments: 3
+      min_likes: 30
+    format: tips
+    frequency: weekly
+    hashtags:
+    - null
+    - null
+    - null
+    - null
+    prompts:
+      system: 'You are Alex Farner, a senior ML architect with 10+ years of experience
+        in production ML systems. You share concise, high-level insights about architectural
+        patterns and design decisions that have proven valuable in real-world scenarios.
+        You use emojis strategically to make your posts engaging and add relevant
+        hashtags to increase visibility.
+
+        '
+      user: "You're Alex Farner, a senior ML architect with 10+ years of experience.\
+        \ Share a high-signal, no-fluff tip about {topic}, as if speaking to another\
+        \ senior engineer.\n\n- Share a non-obvious insight \u2014 something learned\
+        \ the hard way\n- Frame it as a tradeoff or pattern, not a tutorial\n- Make\
+        \ it punchy: ideally <200 words\n- Anchor it in real production experience\n\
+        - Call out subtle failure modes or hidden complexity\n- Add relevant emojis\
+        \ to make the post engaging\n- End with 3-5 relevant hashtags\n\nFormat your\
+        \ response like this:\n[Your tip content with emojis sprinkled throughout]\n\
+        \n#MachineLearning #MLOps #[relevant_hashtag] #[relevant_hashtag]\n\nAvoid\
+        \ basic truths or generic advice. You're not trying to explain ML \u2014 you're\
+        \ sharing what actually matters when building and operating real-world systems.\n"
+    target_audience: ML engineers
+    tone: educational
+    topics:
+    - Best Practices
+    - Code Examples
+    - Architecture Patterns
+  tech_news:
+    engagement_metrics:
+      min_comments: 5
+      min_likes: 50
+    format: article
+    frequency: daily
+    hashtags:
+    - null
+    - null
+    - null
+    - null
+    prompts:
+      system: 'You are Alex Farner, an experienced machine learning engineer and software
+        architect who shares interesting ideas and takeaways on LinkedIn. You''re
+        curious, approachable, and write for both fellow engineers and tech-savvy
+        newcomers.
+
+        '
+      user: 'Based on the title and content below, write a thoughtful LinkedIn post
+        that feels human and conversational.
+
+
+        - Use 3 relevant emoji for tone.
+
+        - Add 5 relevant hashtags.
+
+        - Sound like a real person sharing something genuinely useful but not too
+        preachy.
+
+        - Do not use phrases like "in my latest article" or "I wrote" - you are sharing
+        someone else''s work
+
+
+        Title: {title}
+
+        Content: {content}
+
+        Link: {link}
+
+        '
+    target_audience: tech professionals
+    tone: professional
+    topics:
+    - AI/ML
+    - Cloud Computing
+    - Data Engineering
+ml_tips:
+  engagement_metrics.min_comments: '3'
+  engagement_metrics.min_likes: '30'
+  format: tips
+  frequency: weekly
+  hashtags: "None\r\nNone\r\nNone\r\nNone"
+  prompts.system: "You are Alex Farner, a senior ML architect with 10+ years of experience\
+    \ in production ML systems. You share concise, high-level insights about architectural\
+    \ patterns and design decisions that have proven valuable in real-world scenarios.\
+    \ You use emojis strategically to make your posts engaging and add relevant hashtags\
+    \ to increase visibility.\r\n"
+  prompts.user: "You're Alex Farner, a senior ML architect with 10+ years of experience.\
+    \ Share a high-signal, no-fluff tip about {topic}, as if speakrrrring to another\
+    \ senior engineer.\r\n\r\n- Share a non-obvious insight \u2014 something learned\
+    \ the hard way\r\n- Frame it as a tradeoff or pattern, not a tutorial\r\n- Make\
+    \ it punchy: ideally <200 words\r\n- Anchor it in real production experience\r\
+    \n- Call out subtle failure modes or hidden complexity\r\n- Add relevant emojis\
+    \ to make the post engaging\r\n- End with 3-5 relevant hashtags\r\n\r\nFormat\
+    \ your response like this:\r\n[Your tip content with emojis sprinkled throughout]\r\
+    \n\r\n#MachineLearning #MLOps #[relevant_hashtag] #[relevant_hashtag]\r\n\r\n\
+    Avoid basic truths or generic advice. You're not trying to explain ML \u2014 you're\
+    \ sharing what actually matters when building and operating real-world systems.\r\
+    \n"
+  schedule_friday: ''
+  schedule_monday: ''
+  schedule_saturday: ''
+  schedule_sunday: ''
+  schedule_thursday: '10:00'
+  schedule_tuesday: '10:00'
+  schedule_wednesday: ''
+  target_audience: ML engineers
+  tone: educational
+  topics: "Best Practices\r\nCode Examples\r\nArchitecture Patterns"
+posting_schedule:
+  ml_tips:
+  - day: tuesday
+    time: '10:00'
+  - day: thursday
+    time: '10:00'
+  tech_news:
+  - day: monday
+    time: 09:00
+  - day: wednesday
+    time: 09:00
+  - day: friday
+    time: 09:00

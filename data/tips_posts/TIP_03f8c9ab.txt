@@ -1,0 +1,11 @@
+Access Control 🛡️ in ML systems is a dance between flexibility & auditability.🎭
+
+Early in my career, I underestimated the complexity of granular permissions. Thought: "Let's just add more roles!" 🎲😬 Big mistake!
+
+More roles = more chaos. Every new role doubles the possible interactions, leading to unintended loopholes. 🌀🕳️ But don't swing too far the other way. Overly rigid roles can strangle innovation. 🔒🚫
+
+Pattern: Strive for 'Goldilocks' roles 🐻 Not too broad, not too narrow. They're just right. 🎯 Regularly review & refactor as your team and projects evolve. 🌱➡️🌳
+
+Remember: Overshooting on either side can hurt. Too loose, and you're an audit nightmare. Too tight, and you stifle your team. Walk that line. 🚶‍♂️⚖️
+
+#MachineLearning #MLOps #MLSecurity #AccessControl #MLArchitecture

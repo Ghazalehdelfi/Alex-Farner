@@ -1,0 +1,9 @@
+Data versioning: it's not just about keeping track of your datasets. The non-obvious insight here is this: how you version your data directly influences your ability to reproduce experiments and manage ML model rollbacks in production.
+
+The tradeoff: simplicity vs reproducibility. One common pattern is to timestamp every new dataset. It's simple but can lead to chaos, as it doesn't inherently capture the relationship between your data and model versions. 
+
+A harder but more rewarding strategy: tie your data versions directly to your model versions. In practice, this could mean using the same commit hash for both. This adds complexity in your data pipeline, but massively simplifies debugging and rollback scenarios - your model’s performance can be directly traced back to its associated data.
+
+Failure mode: your model's performance drops after deployment. With the timestamp approach, you're left guessing which data version might work best. But if your data and model versions are tied together, rollback is straightforward. 
+
+Remember: your data versioning strategy can be a silent hero in managing machine learning systems complexity.

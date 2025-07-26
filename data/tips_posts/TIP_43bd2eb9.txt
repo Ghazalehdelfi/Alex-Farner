@@ -1,0 +1,9 @@
+In ML system design, Security & Compliance isn't an afterthought, it's a necessity 👮‍♀️. Relying on periodic audits? Think again 🤔. Real-world experience taught me the hard way: continuous compliance monitoring is key 🔑.
+
+Here's the tradeoff: Periodic audits offer a snapshot 📸 of a point in time, but they miss crucial compliance drifts that can occur in between. Continuous monitoring is like a CCTV 🎥 rolling 24/7, catching every drift, minimizing risk, and saving potential penalties 🛡️.
+
+Beware, though: it's not just about having the right tools. It's about setting up the right processes and alert systems to act on issues promptly ⏰. Hidden complexity? It can lead to alert fatigue if not set up properly 😓. 
+
+The punchline: Rethink compliance as a continuous process, not a one-off checkpoint 🏁.
+
+#MachineLearning #MLOps #Security #Compliance #ContinuousMonitoring

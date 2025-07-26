@@ -1,0 +1,7 @@
+Model serving optimization isn’t all about speed. While low latency is critical for certain use-cases, it's a common pitfall to over-optimize for it. Striking the right balance between speed, cost, and maintainability can be tricky.
+
+I've seen servers melt under the load of complex models optimized for lightning-fast individual predictions, but hopeless when faced with simultaneous requests. Other times, the cost of heavy-duty machines capable of sustaining these optimized models can bleed budgets dry.
+
+The tradeoff: speed vs scalability. Consider incorporating practices like batching requests or using model distillation. With batching, you trade-off some latency for improved throughput. Model distillation may increase the training complexity but can significantly reduce prediction costs. 
+
+Don't get lost in the pursuit of speed. Always be aware of the hidden costs and complexity, and optimize for your specific use-case and constraints. It’s not about being fast, it’s about being smart.

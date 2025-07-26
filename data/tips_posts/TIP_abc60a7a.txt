@@ -1,0 +1,7 @@
+Dedicate significant resources to data quality monitoring and validation. In the trenches, we've found that data pipelines are fragile, not due to the algorithms or models, but because of the data. 
+
+Here's the non-obvious bit: don't just monitor the data you put into your pipelines, monitor what's coming out of them. Anomalies in output can highlight subtle, systemic issues in input data. 
+
+Addressing bad data isn't a pre-processing step; it's a continuous battle! Automate the monitoring of your data quality and set alerts for anomalies. It's a trade-off between investing in data monitoring vs spending countless hours debugging model performance issues that stem from bad data. 
+
+Failure to do this means chasing phantom bugs in your models, when the real gremlin is the input data. Remember, "garbage in, garbage out".

@@ -1,0 +1,9 @@
+Here's a hard-earned insight for real-time data processing: Always design for idempotence and out-of-order data arrival. In a perfect world, data would always arrive in the order it was produced and never get duplicated. But we don't live in a perfect world.
+
+Real-world systems often yield duplicate or out-of-sequence data due to network retries, system failures, or design flaws. It can cripple your downstream processing if you're not prepared. 
+
+Design your event processing to be idempotent — able to process the same data multiple times without changing the result beyond the initial application. Create your systems to handle data surplus and sequence anomalies gracefully. 
+
+Tradeoff? It adds complexity. You'll need to include metadata like event timestamps, and use algorithms, like watermarking, that can handle out-of-order data. But ignore this and you'll pay a heavier price when data anomalies lead to erroneous analytics or crashed applications. It's rework, debugging, and headaches you don't need.
+
+Don't underestimate the chaos of real-world data. Design for idempotence and out-of-order arrival from the start.

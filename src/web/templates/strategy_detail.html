@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+
+{% block title %}{{ strategy_name|title }} - Strategy Details{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active">{{ strategy_name|title }}</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Strategy Details</h5>
+                <a href="{{ url_for('edit_strategy', strategy_name=strategy_name) }}" 
+                   class="btn btn-outline-primary btn-sm">
+                    <i class="fas fa-edit"></i> Edit Strategy
+                </a>
+            </div>
+            <div class="card-body">
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <h6>Frequency</h6>
+                        <span class="badge bg-primary">{{ strategy.get('frequency', '')|title }}</span>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>Format</h6>
+                        <span class="badge bg-info">{{ strategy.get('format', '')|title }}</span>
+                    </div>
+                </div>
+
+                <h6 class="mt-4">Topics</h6>
+                <div class="mb-3">
+                    {% for topic in strategy.get('topics', []) %}
+                    <span class="badge bg-info">{{ topic }}</span>
+                    {% endfor %}
+                </div>
+                
+                <h6 class="mt-4">Target Audience</h6>
+                <p>{{ strategy.get('target_audience', 'Not specified') }}</p>
+                
+                <h6 class="mt-4">Tone</h6>
+                <p>{{ strategy.get('tone', 'Not specified')|title }}</p>
+                
+                <h6 class="mt-4">Engagement Metrics</h6>
+                <div class="mb-3">
+                    <span class="badge bg-success">
+                        Min Likes: {{ strategy.get('engagement_metrics', {}).get('min_likes', 0) }}
+                    </span>
+                    <span class="badge bg-info">
+                        Min Comments: {{ strategy.get('engagement_metrics', {}).get('min_comments', 0) }}
+                    </span>
+                </div>
+                
+                <h6 class="mt-4">Hashtags</h6>
+                <div class="mb-3">
+                    {% for hashtag in strategy.get('hashtags', []) %}
+                    <span class="badge bg-secondary">{{ hashtag }}</span>
+                    {% endfor %}
+                </div>
+
+                <h6 class="mt-4">Schedule</h6>
+                <div class="mb-3">
+                    {% for schedule in posting_schedule[strategy_name] %}
+                    <span class="badge bg-primary schedule-badge">
+                        <i class="fas fa-clock"></i> {{ schedule.day|title }}: {{ schedule.time }}
+                    </span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">Content Generation Prompts</h5>
+            </div>
+            <div class="card-body">
+                <h6>System Prompt</h6>
+                <div class="alert alert-secondary">
+                    {{ strategy.get('prompts', {}).get('system', 'No system prompt defined') }}
+                </div>
+
+                <h6 class="mt-4">User Prompt Template</h6>
+                <div class="alert alert-info">
+                    <pre class="mb-0">{{ strategy.get('prompts', {}).get('user', 'No user prompt defined') }}</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">Quick Actions</h5>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <a href="{{ url_for('view_content', strategy_name=strategy_name) }}" 
+                       class="btn btn-primary">
+                        <i class="fas fa-file-alt"></i> View Content
+                    </a>
+                    <button class="btn btn-success" onclick="generateContent()">
+                        <i class="fas fa-magic"></i> Generate New Content
+                    </button>
+                    <button class="btn btn-info" onclick="analyzePerformance()">
+                        <i class="fas fa-chart-line"></i> Analyze Performance
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Content Guidelines</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <strong>Length:</strong> {{ content_guidelines.min_length }}-{{ content_guidelines.max_length }} words
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Media:</strong> {{ content_guidelines.media_types|join(', ') }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Call to Action:</strong> {{ 'Required' if content_guidelines.call_to_action else 'Optional' }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Personal Touch:</strong> {{ 'Required' if content_guidelines.personal_touch else 'Optional' }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function generateContent() {
+    // TODO: Implement content generation
+    alert('Content generation will be implemented soon!');
+}
+
+function analyzePerformance() {
+    // TODO: Implement performance analysis
+    alert('Performance analysis will be implemented soon!');
+}
+</script>
+{% endblock %} 

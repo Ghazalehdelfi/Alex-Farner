@@ -1,0 +1,14 @@
+🔭🤖🌐 The AI space is vast and can feel overwhelming...until we start using abstractions to make sense of it! In my latest article "The Good-Enough Truth", we dive into the concept of the AI stack. 🧩
+
+Just like the good old LAMP stack that powers WordPress, the AI stack is all about combining technologies to build applications. 🏢 It's all about finding your place in the stack, and deciding which tech will help you succeed. 
+
+We've broken the AI stack down to 4 layers:
+1️⃣ Infrastructure Layer: The hardware - GPUs, TPUs, cloud services.
+2️⃣ Data Layer: The data needed to train models, and databases to store it.
+3️⃣ Model and Orchestration Layer: The actual models and tools to build, deploy, and observe them.
+4️⃣ Application Layer: The AI-powered applications used by customers.
+
+Check out my full breakdown and let's make this complicated landscape a bit more navigable, together. 👇
+[Link](https://towardsdatascience.com/the-good-enough-truth/)
+
+#AI #MachineLearning #WebDevelopment #DataScience #AIStack

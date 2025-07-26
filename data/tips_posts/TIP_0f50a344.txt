@@ -1,0 +1,11 @@
+Insight: Embrace "smart" load balancing in your ML services, but with a keen eye on the criticality of data locality. 
+
+In production ML systems, the conventional wisdom of load balancing - evenly distributing requests across all servers to minimize response time - can sometimes backfire. Unlike traditional web services, ML workloads are often data-intensive, and thus data locality is paramount. 
+
+A non-obvious pattern that emerges in practice is that seemingly optimal load balancing can inadvertently lead to severe network I/O bottlenecks, due to the constant data shuffling across nodes. This is especially true for ML models that rely heavily on large datasets, like many deep learning scenarios.
+
+In a recent project, we redesigned the load balancing strategy of a distributed deep learning service. By allowing a temporary imbalance in request distribution to preserve data locality - effectively letting some nodes specialize in certain requests - we saw a significant decrease in overall latency. This counterintuitive approach led to an improved system throughput and a more predictable performance, which was crucial to meet our SLAs. 
+
+However, be aware of the pitfall: over-specialization can lead to underutilization of resources. If your data isn't evenly distributed, some nodes might get overwhelmed while others idle. A potential failure mode is when incoming data patterns shift, causing a sudden imbalance. Regular monitoring and dynamic rebalancing can help prevent this, but it adds more operational complexity.
+
+So, when architecting ML services, consider the non-obvious trade-offs in your load balancing strategy. You should carefully weigh the benefits of data locality against the risks and added complexity of smart load balancing. Remember, the ultimate goal is not perfect balance, but optimum system performance.

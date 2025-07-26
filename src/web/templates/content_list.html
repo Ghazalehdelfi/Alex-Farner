@@ -1,0 +1,273 @@
+{% extends "base.html" %}
+
+{% block title %}{{ strategy_name|title }} - Content{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ url_for('view_strategy', strategy_name=strategy_name) }}">{{ strategy_name|title }}</a></li>
+                <li class="breadcrumb-item active">Content</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col">
+        <div class="d-flex justify-content-between align-items-center">
+            <h1>Content for {{ strategy_name|title }}</h1>
+            <button class="btn btn-success" onclick="generateContent()">
+                <i class="fas fa-magic"></i> Generate New Content
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <ul class="nav nav-tabs mb-4" id="contentTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="draft-tab" data-bs-toggle="tab" data-bs-target="#draft" type="button" role="tab">
+                    Draft
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="posted-tab" data-bs-toggle="tab" data-bs-target="#posted" type="button" role="tab">
+                    Posted
+                </button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="contentTabsContent">
+            <div class="tab-pane fade show active" id="draft" role="tabpanel">
+                {% for item in content_items if item.status == 'draft' %}
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h5 class="card-title">{{ item.title }}</h5>
+                                <p class="card-text">{{ item.content[:200] }}...</p>
+                                <small class="text-muted">Created: {{ item.created_at }}</small>
+                                {% if item.source %}
+                                <br>
+                                <small class="text-muted">Source: {{ item.source }}</small>
+                                {% endif %}
+                            </div>
+                            <div class="btn-group">
+                                <button class="btn btn-outline-primary btn-sm" onclick="editContent('{{ item.id }}')">
+                                    <i class="fas fa-edit"></i> Edit
+                                </button>
+                                <button class="btn btn-outline-success btn-sm" onclick="postContent('{{ item.id }}')">
+                                    <i class="fas fa-paper-plane"></i> Post
+                                </button>
+                                <button class="btn btn-outline-danger btn-sm" onclick="deleteContent('{{ item.id }}')">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="text-center text-muted py-4">
+                    No draft content available
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="tab-pane fade" id="posted" role="tabpanel">
+                {% for item in content_items if item.status == 'posted' %}
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h5 class="card-title">{{ item.title }}</h5>
+                                <p class="card-text">{{ item.content[:200] }}...</p>
+                                <small class="text-muted">Posted: {{ item.created_at }}</small>
+                                {% if item.source %}
+                                <br>
+                                <small class="text-muted">Source: {{ item.source }}</small>
+                                {% endif %}
+                            </div>
+                            <div class="btn-group">
+                                <button class="btn btn-outline-info btn-sm" onclick="viewAnalytics('{{ item.id }}')">
+                                    <i class="fas fa-chart-line"></i> Analytics
+                                </button>
+                                <button class="btn btn-outline-primary btn-sm" onclick="repostContent('{{ item.id }}')">
+                                    <i class="fas fa-redo"></i> Repost
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="text-center text-muted py-4">
+                    No posted content available
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add loading modal -->
+<div class="modal fade" id="loadingModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Generating Content</h5>
+            </div>
+            <div class="modal-body">
+                <div class="progress mb-3">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" 
+                         role="progressbar" 
+                         style="width: 0%" 
+                         id="generationProgress">
+                    </div>
+                </div>
+                <p id="generationStatus" class="text-center mb-0">Starting content generation...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+let statusPollingInterval = null;
+
+function showLoadingModal() {
+    const modal = new bootstrap.Modal(document.getElementById('loadingModal'));
+    modal.show();
+}
+
+function hideLoadingModal() {
+    const modal = bootstrap.Modal.getInstance(document.getElementById('loadingModal'));
+    if (modal) {
+        modal.hide();
+    }
+}
+
+function updateProgress(progress, message) {
+    const progressBar = document.getElementById('generationProgress');
+    const statusText = document.getElementById('generationStatus');
+    
+    progressBar.style.width = `${progress}%`;
+    progressBar.setAttribute('aria-valuenow', progress);
+    statusText.textContent = message;
+}
+
+function startStatusPolling() {
+    statusPollingInterval = setInterval(checkStatus, 1000);
+}
+
+function stopStatusPolling() {
+    if (statusPollingInterval) {
+        clearInterval(statusPollingInterval);
+        statusPollingInterval = null;
+    }
+}
+
+function checkStatus() {
+    fetch(`/strategy/{{ strategy_name }}/status`)
+        .then(response => response.json())
+        .then(data => {
+            updateProgress(data.progress, data.message);
+            
+            if (data.status === 'completed') {
+                stopStatusPolling();
+                setTimeout(() => {
+                    hideLoadingModal();
+                    location.reload();
+                }, 1000);
+            } else if (data.status === 'error') {
+                stopStatusPolling();
+                hideLoadingModal();
+                alert('Error generating content: ' + data.message);
+            }
+        })
+        .catch(error => {
+            stopStatusPolling();
+            hideLoadingModal();
+            alert('Error checking generation status: ' + error);
+        });
+}
+
+function generateContent() {
+    if (confirm('Are you sure you want to generate new content?')) {
+        showLoadingModal();
+        startStatusPolling();
+        
+        fetch(`/strategy/{{ strategy_name }}/generate`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'error') {
+                stopStatusPolling();
+                hideLoadingModal();
+                alert('Error generating content: ' + data.message);
+            }
+        })
+        .catch(error => {
+            stopStatusPolling();
+            hideLoadingModal();
+            alert('Error generating content: ' + error);
+        });
+    }
+}
+
+function editContent(contentId) {
+    // TODO: Implement content editing
+    alert('Content editing will be implemented soon!');
+}
+
+function postContent(contentId) {
+    if (confirm('Are you sure you want to post this content?')) {
+        fetch(`/post/${contentId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                alert('Content posted successfully!');
+                location.reload();
+            } else {
+                alert('Error posting content: ' + data.message);
+            }
+        })
+        .catch(error => {
+            alert('Error posting content: ' + error);
+        });
+    }
+}
+
+function deleteContent(contentId) {
+    if (confirm('Are you sure you want to delete this content?')) {
+        // TODO: Implement content deletion
+        alert('Content deletion will be implemented soon!');
+    }
+}
+
+function viewAnalytics(contentId) {
+    // TODO: Implement analytics view
+    alert('Analytics view will be implemented soon!');
+}
+
+function repostContent(contentId) {
+    if (confirm('Are you sure you want to repost this content?')) {
+        // TODO: Implement content reposting
+        alert('Content reposting will be implemented soon!');
+    }
+}
+</script>
+{% endblock %} 

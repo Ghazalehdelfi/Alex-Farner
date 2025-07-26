@@ -1,0 +1,9 @@
+Leveraging A/B testing in MLOps isn't just about comparing model A to model B. It's about orchestrating a complex, ongoing dance of models - a 'Model Ballet'. 
+
+Here’s a hard-earned insight: Treat your models like a fleet, not isolated instances. As your model evolves, so too should your A/B testing setup. Don’t fall into the trap of ‘set and forget’.  
+
+While aligning a fleet of models requires more initial effort, it mitigates risk around performance drop-offs from newly deployed models. More importantly, it offers a softer landing for those 'surprise' model regressions.
+
+The tradeoff? Greater initial complexity for more robust, future-proof performance. You're not just comparing two static points, but managing a dynamic performance landscape. 
+
+Stay on your toes. The dance of models never stops. Your A/B testing shouldn't either.
