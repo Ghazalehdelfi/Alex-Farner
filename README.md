@@ -129,17 +129,9 @@ pytest tests/
 - **`src/web/templates/`**: HTML templates for the web interface
 
 ### Configuration
-- **`src/config/content_strategies.yaml`**: Content generation strategies and templates
-- **`.env`**: Environment variables and API keys
-
-### Data Management
-- **`data/logs/`**: Application logs for debugging and monitoring
-- **`data/news_posts/`**: Generated tech news content
-- **`data/tips_posts/`**: Generated ML tips content
-- **CSV files**: Metadata and performance tracking
+- **`src/config/content_strategies.yaml`**: Content generation strategies 
 
 ## Development
-
 The project uses:
 - **OpenAI GPT models** for content generation
 - **Playwright** for web automation
